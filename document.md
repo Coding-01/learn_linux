@@ -9,7 +9,9 @@
 
 如果之前用 kpatch 或手动编译过补丁，先设法卸载它们
 
-CVE-2026-31431 相关的漏洞代码主要存在于较新的内核（通常是4.14+ 或更高版本）中的 Crypto 接口, 即使 https://copy.fail/#exploit 上说是 "The same 732-byte Python script roots every Linux distribution shipped since 2017.",它需要python3为前提，CentOS7系全是python2, 如果要在centos7系上运行该exp需要安装python3环境
+CVE-2026-31431 相关的漏洞代码主要存在于较新的内核（通常是4.14+ 或更高版本）中的 Crypto 接口, 即使 https://copy.fail/#exploit 上说:
+"The same 732-byte Python script roots every Linux distribution shipped since 2017."
+它需要python3为前提，CentOS7系全是python2, 如果要在centos7系上运行该exp需要安装python3环境
 
 
 ```
