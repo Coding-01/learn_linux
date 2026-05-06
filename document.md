@@ -1,3 +1,69 @@
+
+# linux部分基础
+```shell
+# shell脚本的格式
+lfs@ub24-1:/mnt/lfs/sources$ vim build_temp_tools.sh
+# 定义变量
+#!/usr/bin/env bash                     # 和#!/bin/bash有区别
+# 遇到报错后立刻停止
+set -e
+set -o pipefail
+
+LOG=/mnt/lfs/build.log
+exec > >(tee -a $LOG) 2>&1
+
+echo "==== LFS TEMP TOOLCHAIN BUILD START ===="
+
+# �~_��~@�~O~X�~G~O
+export LFS=/mnt/lfs
+export LFS_TGT=$(uname -m)-lfs-linux-gnu
+export PATH=$LFS/tools/bin:/usr/bin:/bin
+
+cd $LFS/sources
+build_binutils_pass1() {
+    echo ">>> binutils pass1"
+    tar xf binutils-*.tar.*
+    cd binutils-2.46.0
+   mkdir -v build && cd build
+
+    ../configure --prefix=$LFS/tools ....
+...
+    ....
+}
+
+build_gcc_pass1() {
+    echo ">>> gcc pass1"
+    tar xf gcc-*.tar.*
+    cd gcc-15.2.0
+
+    tar xf ../mpfr-*.tar.* && mv mpfr-* mpfr
+....
+    ....
+}
+
+build_linux_headers() {
+    echo ">>> linux headers"
+    tar xf linux-*.tar.*
+....
+    
+}
+
+main() {
+    build_binutils_pass1
+    build_gcc_pass1
+    build_linux_headers
+    build_glibc
+}
+
+main
+
+echo "==== BUILD COMPLETE ===="
+
+```
+
+
+
+
 # CVE-2026-31431复现前奏
 ```shell
 即使 exp 是破坏型的，所以你不应该用“是否破坏成功”来验证修复
