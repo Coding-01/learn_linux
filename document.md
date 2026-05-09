@@ -1,7 +1,25 @@
 
 # linux部分基础
 ```shell
-# shell脚本的格式
+# shell脚本定义函数和样式
+lfs@ub24-1:~$ cat 1.sh 
+log() {
+    echo -e "\n\033[1;32m>>> Building: $1\033[0m\n"
+} 
+
+build_python() {
+    log "Python (Dual-Build Strategy)"
+}
+
+build_python
+
+lfs@ub24-1:/mnt/lfs/sources$ bash 1.sh
+注意：会输出一个带格式和颜色的行
+
+
+
+
+# shell脚本的函数/引用和格式
 lfs@ub24-1:/mnt/lfs/sources$ vim build_temp_tools.sh
 # 定义变量
 #!/usr/bin/env bash                     # 和#!/bin/bash有区别
