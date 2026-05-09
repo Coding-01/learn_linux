@@ -320,3 +320,8 @@ Python 2.7.5
 [root@rocky9 ~]# python27 -c "import rpm; import ssl; print('Everything is OK')"
 Everything is OK
 
+[root@rocky9 ~]# python27 --version
+Python 2.7.5
+
+[root@rocky9 ~]# python27 -c "import urllib; print(urllib.urlopen('https://www.qq.com').getcode())"
+200
