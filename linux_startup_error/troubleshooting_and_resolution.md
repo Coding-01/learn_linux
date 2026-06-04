@@ -1084,9 +1084,9 @@ dracut -f
 
 
 
-# 六、接单时真正高频的场景
+# 六、高频场景
 ```shell
-实际Upwork/Fiverr中. 客户极少主动说GRUB坏了
+客户极少主动说GRUB坏了
 
 通常描述是: Server won't boot
 或者:
